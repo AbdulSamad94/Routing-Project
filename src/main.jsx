@@ -13,7 +13,7 @@ import About from "./components/About/About";
 import "./index.css";
 import User from "./components/User/User";
 import Github from "./components/Github/Github";
-import Login from "./components/Login/Login"
+
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -23,7 +23,6 @@ const router = createBrowserRouter(
       <Route path="contact" element={<Contact />} />
       <Route path="user/:userid" element={<User />} />
       <Route path="github" element={<Github />} />
-      <Route path="login" element={<Login />} />
     </Route>
   )
 );

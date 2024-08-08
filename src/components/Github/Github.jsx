@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 function Github() {
   const [user, setUser] = useState("");
-  const [fromData, setData] = useState(null);
+  const [fromData, setData] = useState();
 
   const fetchUserData = (username) => {
     fetch(`https://api.github.com/users/${username}`)
@@ -16,11 +16,6 @@ function Github() {
       });
   };
 
-  useEffect(() => {
-    if (user) {
-      fetchUserData(user);
-    }
-  }, [user]);
 
   const whenClicked = () => {
     console.log(`User Name is ${user}`);
@@ -29,7 +24,7 @@ function Github() {
 
   return (
     <>
-      <div className="flex justify-center items-center gap-5 flex-col p-20 bg-gray-100">
+      <div className={`${ whenClicked ? "flex" : "hidden" } flex justify-center items-center gap-5 flex-col p-20 bg-gray-100`}>
         <div className="text-2xl">Login With Github</div>
         <input
           onChange={(e) => setUser(e.target.value)}
